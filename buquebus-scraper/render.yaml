@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: buquebus-scraper
+    env: node
+    plan: starter
+    buildCommand: bun install && bun run build
+    startCommand: bun start
+    healthCheckPath: /api/test
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+        value: true
